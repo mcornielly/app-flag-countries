@@ -35,7 +35,7 @@ export default createStore({
       const textCountry = country.toLowerCase()
       const filter = state.countries.filter(country => {
         const textApi = country.name.toLowerCase()
-        if(textApi.include(textCountry)) {
+        if(textApi.includes(textCountry)) {
           return country
         }
        })
