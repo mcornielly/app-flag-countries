@@ -19,7 +19,7 @@ export default createStore({
       try {
         const res = await fetch('api.json')
         const data = await res.json()
-        console.log(data)
+        // console.log(data)
         commit('setCountries', data)
       } catch (error) {
         console.error(error)
@@ -30,6 +30,16 @@ export default createStore({
         return country.region.includes(region)
       })
       commit('setCountriesFilter', filter)
+    },
+    filterCountry({commit, state}, country) {
+      const textCountry = country.toLowerCase()
+      const filter = state.country.filter(country => {
+        const textApi = country.name.toLowerCase()
+        if(textApi.include(textCountry)) {
+          return country
+        }
+       })
+       commit('setCountriesFilter', filter)
     }
   },
   getters: {
