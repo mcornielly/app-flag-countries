@@ -33,7 +33,7 @@ export default createStore({
     },
     filterCountry({commit, state}, country) {
       const textCountry = country.toLowerCase()
-      const filter = state.country.filter(country => {
+      const filter = state.countries.filter(country => {
         const textApi = country.name.toLowerCase()
         if(textApi.include(textCountry)) {
           return country
